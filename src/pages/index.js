@@ -17,7 +17,7 @@ const Page = () => (
 	<>
 		<Head>
 			<title>
-				Overview | Devet HRM
+				Overview | HRM
 			</title>
 		</Head>
 		<Box

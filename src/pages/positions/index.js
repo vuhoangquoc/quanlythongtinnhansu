@@ -19,7 +19,7 @@ const Page = () => {
         onCancel={() => setIsOpenAddNewDialog(false)}
       />
       <Head>
-        <title>Position | Devet HRM</title>
+        <title>Positions | HRM</title>
       </Head>
       <Box
         component="main"
@@ -33,7 +33,7 @@ const Page = () => {
           <Stack spacing={2}>
             <Stack direction="row" justifyContent="space-between" spacing={4}>
               <Stack spacing={1}>
-                <Typography variant="h4">Position</Typography>
+                <Typography variant="h4">Positions</Typography>
               </Stack>
             </Stack>
             <PositionAddNewOrUpdate />

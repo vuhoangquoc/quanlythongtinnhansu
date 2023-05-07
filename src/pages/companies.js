@@ -71,7 +71,7 @@ const Page = () => (
 	<>
 		<Head>
 			<title>
-				Companies | Devet HRM
+				Companies | HRM
 			</title>
 		</Head>
 		<Box

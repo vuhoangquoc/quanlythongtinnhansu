@@ -8,7 +8,7 @@ const Page = () => (
 	<>
 		<Head>
 			<title>
-				Account | Devet HRM
+				Account | HRM
 			</title>
 		</Head>
 		<Box

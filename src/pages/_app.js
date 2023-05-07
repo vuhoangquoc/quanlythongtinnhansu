@@ -32,7 +32,7 @@ const App = (props) => {
 		<CacheProvider value={emotionCache}>
 			<Head>
 				<title>
-					Devet HRM
+					HRM
 				</title>
 				<meta
 					name="viewport"

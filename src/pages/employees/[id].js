@@ -14,77 +14,66 @@ import { UpdateInsurance } from "src/sections/employees/updateInsurance";
 import { useApp } from "src/hooks/use-app";
 
 const Page = () => {
-	const router = useRouter();
-	const { id } = router.query;
-	const insuranceContext = useInsuranceContext();
-	const [insurance, setInsurance] = useState(insuranceContext.insuranceList.find((res) => res.employeeId === id));
-	const { refreshApp } = useApp();
+  const router = useRouter();
+  const { id } = router.query;
+  const insuranceContext = useInsuranceContext();
+  const [insurance, setInsurance] = useState(
+    insuranceContext.insuranceList.find((res) => res.employeeId === id)
+  );
+  const { refreshApp } = useApp();
 
-	useEffect(() => {
-		(async () => {
-			const insuranceNew = insuranceContext.insuranceList.find((ins) => ins.employeeId === id);
-			// console.log(insuranceId);
-			setInsurance(insuranceNew);
-			if (insuranceNew === undefined) {
-				return;
-			}
-		})();
-	}, [id, refreshApp, insuranceContext.insuranceList]);
+  useEffect(() => {
+    (async () => {
+      const insuranceNew = insuranceContext.insuranceList.find((ins) => ins.employeeId === id);
+      // console.log(insuranceId);
+      setInsurance(insuranceNew);
+      if (insuranceNew === undefined) {
+        return;
+      }
+    })();
+  }, [id, refreshApp, insuranceContext.insuranceList]);
 
-	return (
-		<>
-			<Head>
-				<title>Employee | Devet HRM</title>
-			</Head>
-			<Box
-				component="main"
-				sx={{
-					flexGrow: 1,
-					py: 3,
-				}}
-			>
-				<Container maxWidth="lg">
-					<Stack spacing={3}>
-						{/* <div>
+  return (
+    <>
+      <Head>
+        <title>Employee | HRM</title>
+      </Head>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          py: 3,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack spacing={3}>
+            {/* <div>
 							<Typography variant="h5">
 								Employee Info
 							</Typography>
 						</div> */}
-						<div>
-							<Grid container
-								spacing={3}>
-								<Grid xs={12}
-									md={6}
-									lg={4}
-									item
-								>
-									<EmployeeProfile employeeId={id} />
-								</Grid>
-								<Grid
-									xs={12}
-									md={6}
-									lg={8}
-									item
-								>
-									<EmployeeProfileDetails employeeId={id} />
-								</Grid>
-								<Grid
-									xs={12}
-									item
-								>
-									{insurance ? (
-										<UpdateInsurance info={insurance} />
-									) : (
-										<AddInsurance employeeId={id} />
-									)}
-								</Grid>
-							</Grid>
-						</div>
-					</Stack>
-				</Container>
-			</Box>
-		</>
-	);
+            <div>
+              <Grid container spacing={3}>
+                <Grid xs={12} md={6} lg={4} item>
+                  <EmployeeProfile employeeId={id} />
+                </Grid>
+                <Grid xs={12} md={6} lg={8} item>
+                  <EmployeeProfileDetails employeeId={id} />
+                </Grid>
+                <Grid xs={12} item>
+                  {insurance ? (
+                    <UpdateInsurance info={insurance} />
+                  ) : (
+                    <AddInsurance employeeId={id} />
+                  )}
+                </Grid>
+              </Grid>
+            </div>
+          </Stack>
+        </Container>
+      </Box>
+    </>
+  );
 };
 
 Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
